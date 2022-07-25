@@ -100,19 +100,6 @@ function js() {
 			]
 		}))
 		.pipe(dest("./build/assets/js/"))
-		// .pipe(babel({
-		// 	"presets": [
-		// 		[
-		// 			"@babel/preset-env",
-		// 			{
-		// 				"debug": true,
-		// 				"useBuiltIns": "usage",
-		// 				"corejs": 3
-		// 			}
-		// 		]
-		// 	],
-		// 	"plugins": ["@babel/plugin-transform-arrow-functions"]
-		// }))
 		.pipe(
 			uglify()
 		)
