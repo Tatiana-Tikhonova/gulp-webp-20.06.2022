@@ -16,7 +16,7 @@ testWebP(function (support) {
     }
 
 });
-window.addEventListener('DOMContentLoaded', function () {
+window.addEventListener('DOMContentLoaded', () => {
 
     let vw = window.innerWidth,
         vh = window.innerHeight,

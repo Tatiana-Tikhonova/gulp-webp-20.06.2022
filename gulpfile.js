@@ -85,10 +85,34 @@ function css() {
 function js() {
 	return src("./src/assets/js/**/*.js")
 		.pipe(include())
-		.pipe(dest("./build/assets/js/"))
 		.pipe(babel({
-			presets: ['@babel/env']
+			"presets": [
+				[
+					"@babel/preset-env",
+					{
+						"useBuiltIns": "entry",
+						"corejs": "3.22"
+					}
+				]
+			],
+			"plugins": [
+				["@babel/plugin-transform-arrow-functions", { "spec": true }]
+			]
 		}))
+		.pipe(dest("./build/assets/js/"))
+		// .pipe(babel({
+		// 	"presets": [
+		// 		[
+		// 			"@babel/preset-env",
+		// 			{
+		// 				"debug": true,
+		// 				"useBuiltIns": "usage",
+		// 				"corejs": 3
+		// 			}
+		// 		]
+		// 	],
+		// 	"plugins": ["@babel/plugin-transform-arrow-functions"]
+		// }))
 		.pipe(
 			uglify()
 		)
