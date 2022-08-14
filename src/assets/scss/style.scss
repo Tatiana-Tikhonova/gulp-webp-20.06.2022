@@ -1,6 +1,7 @@
 // =============================сброс
+@use "_tools" as *;
 @import "_reset";
-@import "_tools";
+
 
 // сетка для отладки
 .grid-debug {
@@ -53,11 +54,11 @@
 }
 
 body {
-	background-color: var(--clr-white, $color-white);
+	background-color: var(--clr-white, $clr-white);
 	font-family: $mainFont;
 	font-size: 16px;
 	line-height: 130%;
-	color: $color-black;
+	color: $clr-black;
 
 	&.lock {
 		overflow: hidden;
@@ -116,6 +117,7 @@ p {
 
 	@media (max-width: $md5) {
 		max-width: none;
+
 	}
 }
 

@@ -1,25 +1,15 @@
 // встроенный математический модуль scss
 @use "sass:math";
 // ===========================переменные
-
-$minwidth: 320px;
-$maxScreenWidth: 1920px;
-$maxwidth: 1360px;
-$md1: $maxwidth;
-$md2: 1200px;
-$md3: 1000px;
-$md4: 768px;
-$md5: 576px;
-$md6: 480px;
 // шрифты
 $mainFont: "Roboto-Regular", sans-serif;
 // корневой размер шрифта для тега html и функции rem()
-$rem: 14;
+$rem: 16;
 // цвета
-$color-black: #231f20;
-$color-white: #ffffff;
-$color-red: #ec2b2f;
-$color-blue: #0073b7;
+$clr-black: #231f20;
+$clr-white: #ffffff;
+$clr-red: #ec2b2f;
+$clr-blue: #0073b7;
 // $hover-blue: #379edb;
 $hover-blue: darken(#0073b7, 7%);
 $hover-red: darken(#ec2b2f, 7%);
@@ -63,38 +53,43 @@ $gap: math.div(24, 2) + px;
 @import "_icons";
 
 // ================================mixins
-@mixin before {
-	&::before {
-		content: "";
-		position: absolute;
-		top: -7px;
-		left: 20px;
-		border-left: 9px solid transparent;
-		border-right: 9px solid transparent;
-		border-bottom: 9px solid $color-white;
-	}
+/*
+создание треугольника
+размеры и форма треугольника зависят от толщины бордера с каждой стороны
+*/
+@mixin triangle($size, $side, $clr) {
+	border-width: $size;
+	border-style: solid;
+	border-color: transparent;
+	border-#{$side}-color: $clr;
 }
 
+// ширина элемента в % от родителя
 @mixin percentage-width($el-width, $parent-width) {
 	width: math.div($el-width, $parent-width) * 100%;
 }
 
+// любое свойство + значение элемента в % от родителя
 @mixin percentage-value($property, $el-width, $parent-width) {
 	#{$property}: math.div($el-width, $parent-width) * 100%;
 }
 
+// максимальная ширина элемента в % от родителя
 @mixin percentage-max-width($el-width, $parent-width) {
 	max-width: math.div($el-width, $parent-width) * 100%;
 }
 
+// flex-basis элемента в % от родителя
 @mixin percentage-flex($el-width, $parent-width) {
 	flex-basis: math.div($el-width, $parent-width) * 100%;
 }
 
+// ширина элемента в % от родителя по кол-ву колонок, которые он занимает в макете
 @mixin columns-width($columns) {
 	width: math.div(100%, $columns);
 }
 
+// миксины для флексов
 @mixin row-margins() {
 	margin-left: -$gap;
 	margin-right: -$gap;
@@ -105,11 +100,20 @@ $gap: math.div(24, 2) + px;
 	padding-right: $gap;
 }
 
+@mixin col-margins() {
+	margin-left: $gap;
+	margin-right: $gap;
+}
+
+//=====================================Functions==========================================
+// функция для перевода размера из пикселей в em
 @function em($sz, $fsz) {
 	$val: math.div($sz, $fsz)+em;
 	@return $val;
 }
 
+
+// функция для перевода размера из пикселей в rem
 @function rem($sz, $rem) {
 	$val: math.div($sz, $rem)+rem;
 	@return $val;
