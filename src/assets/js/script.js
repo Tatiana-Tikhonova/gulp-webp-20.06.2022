@@ -16,12 +16,36 @@ testWebP(function (support) {
     }
 
 });
+// ==============================================
 window.addEventListener('DOMContentLoaded', () => {
+
 
     let vw = window.innerWidth,
         vh = window.innerHeight,
         documentBody = document.body,
         scrollbarWidth = window.outerWidth - window.innerWidth;
+
+    function eventBinder(elem, type, handler) {
+        if (elem.length === 0) { return; }
+        if (elem.length > 1) {
+            elem.forEach(function (el, i) {
+            el.addEventListener(type, handler);
+            });
+        }
+        else {
+            elem.addEventListener(type, handler);
+        }
+    }
+    const btn = document.querySelector('.menu-button'),
+        links = document.querySelectorAll('.menu__link');
+    console.log(links);
+    
+    const logger = function() {
+        console.log(this);
+        
+    }
+    eventBinder(btn, 'click', logger);
+
 
     function activateMenu() {
         const menuBtn = document.querySelector('.menu-button'),

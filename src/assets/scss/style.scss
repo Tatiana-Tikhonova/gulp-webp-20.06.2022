@@ -1,5 +1,5 @@
 // =============================сброс
-@use "_tools" as *;
+@import "_tools" ;
 @import "_reset";
 
 
@@ -48,10 +48,6 @@
 
 // ==============================главные параметры
 
-:root {
-	accent-color: hotpink;
-	--clr-white: #fff;
-}
 
 body {
 	background-color: var(--clr-white, $clr-white);
