@@ -1,3 +1,4 @@
+
 .header {
     position: relative;
     width: 100%;
@@ -33,7 +34,7 @@
         position: relative;
         z-index: 4;
 
-        @media (max-width:$md4) {
+        @media (max-width: $mx4) {
             position: fixed;
             top: 0;
             right: -150%;
@@ -62,7 +63,7 @@
     align-items: center;
     background: $clr-white;
 
-    @media (max-width:$md4) {
+    @media (max-width: $mx4) {
         display: block;
         padding: 80px 20px 20px;
     }
@@ -78,7 +79,7 @@
             padding-right: 0;
         }
 
-        @media (max-width:$md4) {
+        @media (max-width: $mx4) {
             margin-left: 0;
         }
 
@@ -129,7 +130,7 @@
         left: 0;
         z-index: 1;
 
-        @media (max-width:$md4) {
+        @media (max-width: $mx4) {
             position: static;
 
         }
@@ -162,7 +163,7 @@
         pointer-events: auto;
     }
 
-    @media (max-width:$md4) {
+    @media (max-width: $mx4) {
         display: block;
         width: 100%;
         opacity: 1;
@@ -177,7 +178,7 @@
         min-width: 120px;
         padding: 10px 10px 10px 0px;
 
-        @media (max-width:$md4) {
+        @media (max-width: $mx4) {
             padding-right: 0;
         }
     }
@@ -185,7 +186,7 @@
     svg {
         transform: rotate(-90deg);
 
-        @media (max-width:$md4) {
+        @media (max-width: $mx4) {
             transform: rotate(0deg);
         }
     }
@@ -197,7 +198,7 @@
     position: relative;
     z-index: 3;
 
-    @media (max-width: $md4) {
+    @media (max-width: $mx4) {
         display: block;
         padding: 10px 0px 10px 10px;
         background-color: transparent;
@@ -218,7 +219,7 @@
 }
 
 .menu-button.active {
-    @media (max-width: $md4) {
+    @media (max-width: $mx4){
         span {
             &:first-child {
                 transform: translate(0px, 4px) rotate(45deg);
